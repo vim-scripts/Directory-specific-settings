@@ -1,0 +1,14 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1860
+
+This is a very simple plugin that allows for directory tree-specific vim settings.
+
+For example, I prefer to indent with spaces, but one of the code bases I'm working on uses TABs for indentation.  So, instead of mucking with settings and going back and forth, I just create a file called ".vimdir" at the top of that tree and put in some code like this:
+
+setlocal noexpandtab
+
+And that's it!  Every file I edit under that directory will use that setting!
+
+For every file edited, it searches upward from that file's directory for a file named '.vimdir' and sources it.  So, any arbitrary code can be put into the .vimdir file.  But you should take care to ensure that the code applies only to that file and doesn't have any global side-effects.  So, for example, always use 'setlocal'.
+
+This plugin is very similar to vimscript #441.
+
